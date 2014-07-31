@@ -22,7 +22,7 @@ public class GetDataTask extends AsyncTask<String, String, String> {
 	private static final String NAME_REGEX = "^em acgdb-timestamp.*";
 
 	private String dataUrl;
-	private HashMap<String, List<String>> mainData = new HashMap<String, List<String>>();
+	private HashMap<String, Object> mainData = new HashMap<String, Object>();
 
 	public GetDataTask(String dataUrl) {
 		this.dataUrl = dataUrl;
@@ -61,10 +61,10 @@ public class GetDataTask extends AsyncTask<String, String, String> {
 				final List<HashMap<String, String>> namesOfWeek = new ArrayList<HashMap<String, String>>();
 				node.collectInto(new NodeList(), new NodeFilter() {
 					private static final long serialVersionUID = 1L;
-					private HashMap<String, String> itemData = new HashMap<String, String>();
 					@Override
 					public boolean accept(Node node) {
 						if(RegexUtil.checkString(node.getText(), NAME_REGEX)){
+							HashMap<String, String> itemData = new HashMap<String, String>();
 							itemData.put("time", node.getNextSibling().toPlainTextString());
 							itemData.put("name", node.getParent().toHtml().split("<u>")[1].split("</u>")[0]);
 							namesOfWeek.add(itemData);
@@ -76,13 +76,7 @@ public class GetDataTask extends AsyncTask<String, String, String> {
 				names.add(namesOfWeek);
 			}
 			
-			for(List<HashMap<String, String>> tempList:names){
-				for(HashMap<String, String> tempString:tempList){
-					Log.e("time", tempString.get("time"));
-					Log.e("name", tempString.get("name"));
-				}
-			}
-			
+			mainData.put("Time&Name",names);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

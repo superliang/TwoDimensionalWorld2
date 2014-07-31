@@ -1,9 +1,44 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/menu_action_sunday"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:title="@string/global_sunday"/>
 
+    <item
+        android:id="@+id/menu_action_monday"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/global_monday"/>
+    
+    <item
+        android:id="@+id/menu_action_tuesday"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/global_tuesday"/>
+    
+    <item
+        android:id="@+id/menu_action_wednesday"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/global_wednesday"/>
+    
+    <item
+        android:id="@+id/menu_action_thursday"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/global_thursday"/>
+    
+    <item
+        android:id="@+id/menu_action_friday"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/global_friday"/>
+    
+    <item
+        android:id="@+id/menu_action_saturday"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/global_saturday"/>
 </menu>

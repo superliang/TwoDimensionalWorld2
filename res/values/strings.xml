@@ -4,5 +4,14 @@
     <string name="app_name">TwoDimensionalWorld</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">欢迎来到二次元</string>
+    
+    <!-- day time -->
+    <string name="global_sunday">周日</string>
+    <string name="global_monday">周一</string>
+    <string name="global_tuesday">周二</string>
+    <string name="global_wednesday">周三</string>
+    <string name="global_thursday">周四</string>
+    <string name="global_friday">周五</string>
+    <string name="global_saturday">周六</string>
 
 </resources>
