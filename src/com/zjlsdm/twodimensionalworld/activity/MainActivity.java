@@ -1,26 +1,27 @@
 package com.zjlsdm.twodimensionalworld.activity;
 
 import android.app.Activity;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.zjlsdm.twodimensionalworld.R;
-import com.zjlsdm.twodimensionalworld.task.GetDataTask;
 
 public class MainActivity extends Activity {
-	private static final String DATAURL = "http://www.acgdb.com/anime201407/bangumi";
+	private SQLiteDatabase db;
 	private long exitTime = 0;
+	
+	private ListView lvCartoonList;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		GetDataTask task = new GetDataTask(DATAURL);// 获取网络数据，保存sqlite
-		task.execute("");
-
+		
+		
 	}
 
 	/**

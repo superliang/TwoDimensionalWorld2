@@ -1,52 +1,76 @@
 package com.zjlsdm.twodimensionalworld.activity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.view.Window;
-import android.widget.Toast;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.zjlsdm.twodimensionalworld.R;
-import com.zjlsdm.twodimensionalworld.util.ToastUtil;
+import com.zjlsdm.twodimensionalworld.task.InitSystemTask;
+import com.zjlsdm.twodimensionalworld.util.NetworkUtil;
 
 public class SplashActivity extends Activity {
 	private final int SPLASH_DISPLAY_LENGHT = 3000; // 延迟三秒
+	
+	private ProgressBar progressBar;
+	private TextView tvProgress;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_splash);
-		//去掉ActionBar
+		// 去掉ActionBar
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		//页面跳入和跳出的动画方式
-		overridePendingTransition(R.anim.slide_right_in, R.anim.slide_left_out);
+		setContentView(R.layout.activity_splash);
 		
-	}
-	@Override
-	protected void onResume(){
-		super.onResume();
+		progressBar = (ProgressBar) findViewById(R.id.progressBar_splash);
+		tvProgress = (TextView) findViewById(R.id.progressBar_text_splash);
+		// 页面跳入和跳出的动画方式
+		overridePendingTransition(R.anim.slide_right_in, R.anim.slide_left_out);
 		init();
 	}
-	private void init(){
-		ConnectivityManager cwjManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-		NetworkInfo info = cwjManager.getActiveNetworkInfo();
-		if (info != null && info.isAvailable()) {
+
+	private void init() {
+		final int networkState = NetworkUtil.getAPNType(this);
+
+		SharedPreferences sharedPreferences = this.getSharedPreferences(
+				"share", MODE_PRIVATE);
+		boolean isFirstRun = sharedPreferences.getBoolean("isFirstRun", true);
+
+		if (isFirstRun) {
+			//第一次使用软件
+			Editor editor = sharedPreferences.edit();
+			editor.putBoolean("isFirstRun", false);
+			editor.commit();
+			
+			progressBar.setVisibility(View.VISIBLE);
+			tvProgress.setVisibility(View.VISIBLE);
+			InitSystemTask systemTask = new InitSystemTask(this,progressBar,tvProgress,NetworkUtil.getAPNType(this));
+			systemTask.execute("");
+			
+//			GetDataTask task = new GetDataTask(GetUrlEntity.BangumiUrl[2]);// 获取网络数据，保存sqlite
+//			task.execute("");
+		} else {
+			// 页面跳转到MainActivity
 			new Handler().postDelayed(new Runnable() {
 				@Override
 				public void run() {
 					Intent mainIntent = new Intent(SplashActivity.this,
 							MainActivity.class);
+					mainIntent.putExtra("network", networkState + "");
 					SplashActivity.this.startActivity(mainIntent);
 					SplashActivity.this.finish();
 				}
 			}, SPLASH_DISPLAY_LENGHT);
-		} else {
-			ToastUtil.showToast(this, "无法成功连接网络或网络异常", Toast.LENGTH_LONG);
 		}
 		
+		
+		
+
 	}
 }

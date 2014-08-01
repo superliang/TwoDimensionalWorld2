@@ -26,6 +26,10 @@ public final class R {
     }
     public static final class color {
         public static final int global_drak_bg=0x7f060000;
+        public static final int global_text_bottom_color=0x7f060002;
+        public static final int global_text_title_color=0x7f060001;
+        public static final int main_am_bg_color=0x7f060003;
+        public static final int main_pm_bg_color=0x7f060004;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -38,42 +42,54 @@ public final class R {
         public static final int activity_vertical_margin=0x7f070001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int info=0x7f020001;
-        public static final int next=0x7f020002;
-        public static final int previous=0x7f020003;
-        public static final int refresh=0x7f020004;
-        public static final int start_bg=0x7f020005;
+        public static final int base_list_scrollbar_handle=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
+        public static final int image_cover_shadow_white=0x7f020002;
+        public static final int info=0x7f020003;
+        public static final int next=0x7f020004;
+        public static final int previous=0x7f020005;
+        public static final int progress_new=0x7f020006;
+        public static final int refresh=0x7f020007;
+        public static final int splash=0x7f020008;
+        public static final int start_bg=0x7f020009;
+        public static final int test_image=0x7f02000a;
     }
     public static final class id {
-        public static final int menu_action_friday=0x7f0b0005;
-        public static final int menu_action_monday=0x7f0b0001;
-        public static final int menu_action_saturday=0x7f0b0006;
-        public static final int menu_action_sunday=0x7f0b0000;
-        public static final int menu_action_thursday=0x7f0b0004;
-        public static final int menu_action_tuesday=0x7f0b0002;
-        public static final int menu_action_wednesday=0x7f0b0003;
+        public static final int menu_action_friday=0x7f0b0007;
+        public static final int menu_action_monday=0x7f0b0003;
+        public static final int menu_action_saturday=0x7f0b0008;
+        public static final int menu_action_sunday=0x7f0b0002;
+        public static final int menu_action_thursday=0x7f0b0006;
+        public static final int menu_action_tuesday=0x7f0b0004;
+        public static final int menu_action_wednesday=0x7f0b0005;
+        public static final int progressBar_splash=0x7f0b0000;
+        public static final int progressBar_text_splash=0x7f0b0001;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int activity_splash=0x7f030001;
-        public static final int main=0x7f030002;
+        public static final int listview_main_items_view=0x7f030002;
+        public static final int main=0x7f030003;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;
     }
     public static final class string {
         public static final int action_settings=0x7f080001;
+        /**  activity title label text 
+         */
+        public static final int activity_main_label=0x7f08000b;
         public static final int app_name=0x7f080000;
-        public static final int global_friday=0x7f080008;
-        public static final int global_monday=0x7f080004;
-        public static final int global_saturday=0x7f080009;
+        public static final int global_friday=0x7f080009;
+        public static final int global_image_desc=0x7f080003;
+        public static final int global_monday=0x7f080005;
+        public static final int global_saturday=0x7f08000a;
         /**  day time 
          */
-        public static final int global_sunday=0x7f080003;
-        public static final int global_thursday=0x7f080007;
-        public static final int global_tuesday=0x7f080005;
-        public static final int global_wednesday=0x7f080006;
+        public static final int global_sunday=0x7f080004;
+        public static final int global_thursday=0x7f080008;
+        public static final int global_tuesday=0x7f080006;
+        public static final int global_wednesday=0x7f080007;
         public static final int hello_world=0x7f080002;
     }
     public static final class style {
@@ -100,9 +116,9 @@ public final class R {
          */
         public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f090001;
+        public static final int base_listview_style=0x7f090002;
     }
     public static final class xml {
         public static final int widget_provider=0x7f050000;

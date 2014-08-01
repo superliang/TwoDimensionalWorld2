@@ -1,8 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-    
+    android:layout_height="match_parent" >
 
-</LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/global_image_desc"
+        android:scaleType="fitXY"
+        android:src="@drawable/splash" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_splash"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:indeterminateOnly="false"
+        android:layout_alignParentBottom="true"
+        android:maxHeight="20dp"
+        android:minHeight="20dp"
+        android:visibility="gone"
+        android:progressDrawable="@drawable/progress_new" />
+    <TextView 
+        android:id="@+id/progressBar_text_splash"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/global_text_title_color"
+        android:layout_above="@id/progressBar_splash"
+        android:visibility="gone"
+        android:text="第一次运行正在加载内容。。。"/>
+
+</RelativeLayout>

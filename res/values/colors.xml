@@ -1,3 +1,10 @@
 <resources>
     <color name="global_drak_bg">#33000000</color>
+    <color name="global_text_title_color">#0975C3</color>
+    <color name="global_text_bottom_color">#80808F</color>
+    
+    <color name="main_am_bg_color">#5698C8</color>
+    <color name="main_pm_bg_color">#BB51BB</color>
+    
+    
 </resources>
